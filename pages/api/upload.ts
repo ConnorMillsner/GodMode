@@ -1,6 +1,8 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import * as formidable from 'formidable';
 import fs from 'fs/promises';
+import path from 'path';
+import os from 'os';
 import OpenAI from 'openai';
 
 // Disable Next.js body parsing to handle file uploads with formidable
@@ -22,11 +24,23 @@ export default async function handler(
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
+  let filePath: string | null = null;
+
   try {
-    const filePath = await new Promise<string>((resolve, reject) => {
+    // Create uploads directory in the project root
+    const uploadsDir = path.join(process.cwd(), 'uploads');
+    
+    try {
+      await fs.access(uploadsDir);
+    } catch {
+      await fs.mkdir(uploadsDir, { recursive: true });
+    }
+
+    filePath = await new Promise<string>((resolve, reject) => {
       const form = new formidable.IncomingForm({
-        uploadDir: '/tmp',
-        keepExtensions: true
+        uploadDir: uploadsDir,
+        keepExtensions: true,
+        maxFileSize: 10 * 1024 * 1024 // 10MB limit
       });
 
       form.parse(req, (err, _fields, files) => {
@@ -64,9 +78,28 @@ export default async function handler(
       max_tokens: 300
     });
 
+    // Clean up the uploaded file
+    if (filePath) {
+      try {
+        await fs.unlink(filePath);
+      } catch (cleanupError) {
+        console.warn('Could not clean up uploaded file:', cleanupError);
+      }
+    }
+
     return res.status(200).json({ score: response.choices[0].message.content });
   } catch (error: any) {
     console.error('Upload error:', error);
+    
+    // Clean up the uploaded file in case of error
+    if (filePath) {
+      try {
+        await fs.unlink(filePath);
+      } catch (cleanupError) {
+        console.warn('Could not clean up uploaded file after error:', cleanupError);
+      }
+    }
+    
     return res.status(500).json({ error: error.message ?? 'Upload failed' });
   }
 }

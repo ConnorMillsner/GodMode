@@ -1,13 +1,10 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #000000;
+  --foreground: #ffffff;
+  --accent: #ff0000;
+  --accent-hover: #cc0000;
+  --border: #333333;
+  --radius: 0px;
 }
 
 html,
@@ -19,9 +16,14 @@ body {
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.5;
+  transition: none;
 }
 
 * {
@@ -31,12 +33,106 @@ body {
 }
 
 a {
-  color: inherit;
+  color: var(--accent);
   text-decoration: none;
+  transition: color 0.2s;
+  font-weight: 600;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+a:hover {
+  color: var(--accent-hover);
+}
+
+button, input[type="submit"] {
+  background: var(--accent);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius);
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: inherit;
+}
+
+button:hover, input[type="submit"]:hover {
+  background: var(--accent-hover);
+}
+
+button:disabled, input[type="submit"]:disabled {
+  background: #333333;
+  color: #666666;
+  cursor: not-allowed;
+}
+
+input[type="file"], input[type="text"], input[type="email"], input[type="password"] {
+  background: #111111;
+  color: var(--foreground);
+  border: 2px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  transition: border-color 0.2s, background-color 0.2s;
+  font-family: inherit;
+}
+
+input[type="file"]:focus, input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: #1a0000;
+}
+
+input[type="file"]::file-selector-button {
+  background: var(--accent);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius);
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background 0.2s;
+  font-family: inherit;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background: var(--accent-hover);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+  margin-bottom: 1rem;
+  text-shadow: none;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+pre, code {
+  background: #111111;
+  color: var(--foreground);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  line-height: 1.6;
 }
