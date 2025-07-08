@@ -21,7 +21,7 @@ export default function UploadPage() {
     try {
       const response = await fetch('/api/upload', {
         method: 'POST',
-        body: formData,
+        body: formData
       });
 
       if (!response.ok) {
@@ -31,20 +31,29 @@ export default function UploadPage() {
       const data = await response.json();
       setResult(JSON.stringify(data, null, 2));
     } catch (error) {
-      setResult('Error: ' + error.message);
+      setResult('Error: ' + error);
     } finally {
       setLoading(false);
     }
   }
 
   return (
-    <div>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        gap: '2rem'
+      }}
+    >
       <h1>Upload your photo</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="file"
           accept="image/*"
-          onChange={(e) => setSelectedFile(e.target.files ? e.target.files[0] : null)}
+          onChange={(e) =>
+            setSelectedFile(e.target.files ? e.target.files[0] : null)
+          }
         />
         <button type="submit" disabled={!selectedFile || loading}>
           Upload & Ascend
@@ -56,14 +65,35 @@ export default function UploadPage() {
       {selectedFile && (
         <div>
           <h2>Preview:</h2>
-          <img src={URL.createObjectURL(selectedFile)} alt="preview" style={{ maxWidth: '300px' }} />
+          <img
+            src={URL.createObjectURL(selectedFile)}
+            alt="preview"
+            style={{ maxWidth: '300px' }}
+          />
         </div>
       )}
 
       {result && (
-        <div>
+        <div
+          style={{
+            maxWidth: '100%',
+            wordBreak: 'break-word',
+            overflowX: 'auto'
+          }}
+        >
           <h2>Results:</h2>
-          <pre>{result}</pre>
+          <pre
+            style={{
+              whiteSpace: 'pre-wrap',
+              wordBreak: 'break-word',
+              maxWidth: '100%',
+              overflowX: 'auto',
+              padding: '1em',
+              borderRadius: '8px'
+            }}
+          >
+            {result}
+          </pre>
         </div>
       )}
     </div>
