@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import Image from 'next/image';
 import styles from './transformation.module.css';
@@ -17,7 +17,7 @@ interface TransformationData {
   fallbackMessage?: string;
 }
 
-export default function TransformationPage() {
+function TransformationContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [transformationData, setTransformationData] =
@@ -262,5 +262,19 @@ export default function TransformationPage() {
         </button>
       </div>
     </div>
+  );
+}
+
+export default function TransformationPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className={styles.loading}>
+          <div className={styles.loadingText}>Loading transformation...</div>
+        </div>
+      }
+    >
+      <TransformationContent />
+    </Suspense>
   );
 }

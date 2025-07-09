@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import ImageAnalysis from '../components/ImageAnalysis';
 import styles from './results.module.css';
@@ -12,7 +12,7 @@ interface ResultData {
   imageUrl: string;
 }
 
-export default function ResultsPage() {
+function ResultsContent() {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [resultData, setResultData] = useState<ResultData | null>(null);
@@ -20,12 +20,12 @@ export default function ResultsPage() {
   useEffect(() => {
     // Get data from URL parameters
     if (!searchParams) return;
-    
+
     const score = searchParams.get('score');
     const suggestions = searchParams.get('suggestions');
     const observations = searchParams.get('observations');
     const imageUrl = searchParams.get('image');
-    
+
     if (score && imageUrl) {
       try {
         // Safe parsing with error handling
@@ -94,7 +94,7 @@ export default function ResultsPage() {
 
   const handleGenerateTransformation = () => {
     if (!resultData) return;
-    
+
     // Navigate to transformation page with current data including original image
     const transformationParams = new URLSearchParams({
       score: resultData.score.toString(),
@@ -102,7 +102,7 @@ export default function ResultsPage() {
       observations: encodeURIComponent(JSON.stringify(resultData.observations)),
       image: encodeURIComponent(resultData.imageUrl)
     });
-    
+
     router.push(`/transformation?${transformationParams.toString()}`);
   };
 
@@ -116,23 +116,24 @@ export default function ResultsPage() {
 
   return (
     <div className={styles.pageContainer}>
-      <ImageAnalysis 
+      <ImageAnalysis
         imageUrl={resultData.imageUrl}
-        score={resultData.score} 
+        score={resultData.score}
         observations={resultData.observations}
         suggestions={resultData.suggestions}
         isLoading={false}
       />
-      
+
       {/* Transformation Section */}
       <div className={styles.transformationSection}>
         <div className={styles.transformationCard}>
           <h3 className={styles.transformationTitle}>🚀 See Your Potential</h3>
           <p className={styles.transformationDescription}>
-            Wonder how you could look if you implemented these looksmaxxing changes? 
-            Our AI will generate a transformation showing your potential glow-up.
+            Wonder how you could look if you implemented these looksmaxxing
+            changes? Our AI will generate a transformation showing your
+            potential glow-up.
           </p>
-          <button 
+          <button
             onClick={handleGenerateTransformation}
             className={styles.transformationButton}
           >
@@ -140,19 +141,16 @@ export default function ResultsPage() {
           </button>
         </div>
       </div>
-      
+
       <div className={styles.actionSection}>
-        <button 
-          onClick={handleBackToUpload}
-          className={styles.backButton}
-        >
+        <button onClick={handleBackToUpload} className={styles.backButton}>
           Upload Another Image
         </button>
-        
+
         <div className={styles.shareSection}>
           <h3 className={styles.shareTitle}>Share Your Mog Score</h3>
           <div className={styles.shareButtons}>
-            <button 
+            <button
               className={styles.shareButton}
               onClick={() => {
                 const text = `I got a Mog Score of ${resultData.score}/100! 😎`;
@@ -162,7 +160,7 @@ export default function ResultsPage() {
             >
               Copy Score
             </button>
-            <button 
+            <button
               className={styles.shareButton}
               onClick={() => {
                 const url = window.location.href;
@@ -176,5 +174,19 @@ export default function ResultsPage() {
         </div>
       </div>
     </div>
+  );
+}
+
+export default function ResultsPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className={styles.loading}>
+          <div className={styles.loadingText}>Loading your results...</div>
+        </div>
+      }
+    >
+      <ResultsContent />
+    </Suspense>
   );
 }
