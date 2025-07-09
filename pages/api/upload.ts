@@ -59,47 +59,47 @@ export default async function handler(
     
     const observationSets = [
       [
-        "Current hairstyle has good length but lacks modern texture and definition - appears to be air-dried without styling products",
-        "Clothing fit shows proper shoulder alignment in jacket, but trouser length could be hemmed 1-2 inches for optimal break",
-        "Facial hair is well-maintained at current length but neckline definition could be sharper using a precise trimmer setting"
+        "Current pheno lacks dimorphism - facial harmony could be improved through looksmaxxing techniques and better canthal tilt optimization",
+        "Collagen production appears suboptimal - skin texture shows signs of poor skincare routine affecting overall SMV (sexual market value)",
+        "Bone structure has potential but needs facial fat reduction to achieve better hollow cheeks and defined jawline for mogger status"
       ],
       [
-        "Hair shows natural crown growth pattern but would benefit from a structured cut with shorter sides for contemporary styling",
-        "Shirt collar proportions work well with facial structure, but fabric appears to lack the crisp finish of higher-quality materials",
-        "Overall color palette is safe but could be elevated with deeper, more saturated tones for increased visual impact"
+        "Hairline and hair density show norwood potential - need to address MPB prevention and consider hair transplant consultation for chad ascension",
+        "Facial thirds ratio is off - upper third dominance suggests need for eyebrow maxxing and potential surgical intervention for harmony",
+        "Neck area shows subhuman fat distribution - need to gymcel and reduce body fat percentage to reveal underlying bone structure"
       ],
       [
-        "Current hair density and texture would respond well to a textured crop with 3-4cm length on top for better volume control",
-        "Blazer structure fits well through the chest but sleeve length extends past optimal wrist position by approximately 1.5cm", 
-        "Grooming routine appears consistent but could benefit from eyebrow maintenance and light skin care optimization"
+        "Current phenotype shows beta facial features - need to hardmaxx through mewing, chewing, and potential surgical looksmaxxing procedures",
+        "Skin quality indicates poor lifestyle choices - need to optimize diet, sleep, and implement advanced skincare routine for glow-up",
+        "Facial asymmetry detected - left side mogs right side, consider facial exercises and potential cosmetic intervention for balance"
       ],
       [
-        "Hairstyle shows good natural movement but lacks intentional styling direction - would benefit from matte pomade application",
-        "Clothing choices demonstrate good taste in classic styling but fit could be refined with minor tailoring adjustments",
-        "Facial structure would be enhanced by a slightly shorter haircut with more defined edges and cleaner neckline shape"
+        "Eye area lacks hunter eyes - need to focus on orbital bone development and consider canthopexy for better eye shape",
+        "Midface length appears suboptimal - long midface ratio suggests need for upper lip lifting and better facial proportions",
+        "Overall facial development shows recessed features - need to focus on forward growth through mewing and posture correction"
       ]
     ];
     
     const suggestionSets = [
       [
-        "Request a textured crop haircut: 2-3mm fade on sides, 4cm scissor cut on top, ask barber to use point-cutting technique for natural texture",
-        "Upgrade skincare routine: use 2% salicylic acid cleanser 3x weekly, vitamin C serum AM, and 0.25% retinol PM twice weekly",
-        "Fitness focus: reduce body fat to 12-15% through 4x weekly compound lifts (deadlifts, squats, bench) with 300-calorie deficit"
+        "Start mewing immediately: proper tongue posture 24/7, chew hard gum daily, and maintain forward head posture for facial development",
+        "Implement advanced skincare routine: tretinoin 0.05% nightly, vitamin C serum AM, dermarolling weekly for collagen stimulation",
+        "Begin serious looksmaxxing protocol: reduce body fat to 10-12%, start lifting heavy compounds, and optimize testosterone levels naturally"
       ],
       [
-        "Get a modern quiff cut: 1.5mm skin fade sides, 5cm length on top styled forward, use sea salt spray for texture not gel",
-        "Wardrobe upgrade: invest in slim-fit chinos with 7-inch leg opening, replace current shirts with premium cotton blends",
-        "Grooming enhancement: trim eyebrows to 6mm length, define facial hair neckline 2 fingers above Adam's apple"
+        "Get a mogger haircut: ask for textured crop with skin fade, use sea salt spray for texture, and consider finasteride for hair loss prevention",
+        "Upgrade your style game: invest in well-fitted clothes, develop signature scent, and focus on accessories that enhance your phenotype",
+        "Start facial exercises: jaw training with jawzrsize, facial yoga for muscle tone, and consider professional facial massage for lymphatic drainage"
       ],
       [
-        "Try a disconnected undercut: buzzed sides with longer textured top, style with matte clay pomade for natural finish",
-        "Skincare optimization: implement double cleansing routine PM, use niacinamide serum for pore refinement, SPF 30+ daily",
-        "Style refinement: choose navy/charcoal color palette, ensure sleeve length shows 1cm of shirt cuff, add minimal accessories"
+        "Optimize your diet for looksmaxxing: high protein intake, anti-inflammatory foods, intermittent fasting, and supplement with collagen peptides",
+        "Focus on posture correction: strengthen posterior chain, practice wall sits, and maintain proper spinal alignment for better presence",
+        "Consider professional consultation: dermatologist for skin optimization, orthodontist for jaw alignment, and personal trainer for physique development"
       ],
       [
-        "Consider a mid-fade cut: 3mm sides blended to 6cm top, ask for choppy layers to work with natural crown pattern",
-        "Fitness targeting: focus on progressive overload training 4x weekly, maintain 1.8g protein per kg bodyweight for lean gains",
-        "Grooming precision: use 3mm beard trimmer setting, invest in quality pomade, establish consistent morning styling routine"
+        "Implement advanced grooming routine: professional eyebrow shaping, regular facial treatments, and invest in quality grooming tools",
+        "Start supplementation stack: vitamin D3, zinc, magnesium, and omega-3s for optimal hormone production and skin health",
+        "Focus on sleep optimization: 8+ hours nightly, blackout curtains, blue light blocking, and consistent sleep schedule for recovery and growth hormone"
       ]
     ];
     

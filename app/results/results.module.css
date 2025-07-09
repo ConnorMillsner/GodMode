@@ -6,11 +6,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  padding-bottom: 3rem; /* Reduced padding since button is hidden */
-}
-
-.pageContainer:hover .actionSection {
-  bottom: 2rem;
+  padding-bottom: 2rem;
 }
 
 .loading {
@@ -29,23 +25,86 @@
   letter-spacing: 0.1em;
 }
 
+.transformationSection {
+  padding: 3rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.8);
+  border-top: 2px solid #333333;
+  border-bottom: 2px solid #333333;
+}
+
+.transformationCard {
+  background: rgba(0, 0, 0, 0.95);
+  border: 3px solid #333333;
+  border-radius: 12px;
+  padding: 2.5rem;
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.transformationTitle {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin: 0 0 1.5rem 0;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+.transformationDescription {
+  font-size: 1.1rem;
+  color: #cccccc;
+  line-height: 1.6;
+  margin: 0 0 2rem 0;
+  font-weight: 500;
+}
+
+.transformationButton {
+  background: linear-gradient(135deg, #ff0000, #cc0000);
+  color: #ffffff;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+  font-family: inherit;
+}
+
+.transformationButton:hover {
+  background: linear-gradient(135deg, #cc0000, #990000);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 0, 0, 0.4);
+}
+
+.transformationButton:active {
+  transform: translateY(0);
+}
+
 .actionSection {
-  position: fixed;
-  bottom: -15rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-  width: 90%;
-  max-width: 500px;
+  position: static;
+  width: 100%;
+  max-width: 600px;
+  margin: 3rem auto 0;
   display: flex;
   flex-direction: column;
   gap: 1rem;
   align-items: center;
   background: rgba(0, 0, 0, 0.95);
-  padding: 1.5rem;
+  padding: 2rem;
   border: 2px solid #333333;
+  border-radius: 12px;
   backdrop-filter: blur(10px);
-  transition: bottom 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
 .backButton {
@@ -122,18 +181,14 @@
 
 @media (max-width: 768px) {
   .pageContainer {
-    padding-bottom: 3rem;
-  }
-  
-  .pageContainer:hover .actionSection {
-    bottom: 1rem;
+    padding: 1rem;
+    padding-bottom: 2rem;
   }
   
   .actionSection {
-    bottom: -15rem;
-    width: 95%;
+    margin: 2rem auto 0;
+    padding: 1.5rem;
     gap: 1rem;
-    padding: 1rem;
   }
   
   .backButton {
@@ -163,5 +218,26 @@
     font-size: 1.5rem;
     text-align: center;
     padding: 0 1rem;
+  }
+  
+  .transformationSection {
+    padding: 2rem 1rem;
+  }
+  
+  .transformationCard {
+    padding: 2rem;
+  }
+  
+  .transformationTitle {
+    font-size: 1.5rem;
+  }
+  
+  .transformationDescription {
+    font-size: 1rem;
+  }
+  
+  .transformationButton {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
   }
 } 

@@ -92,6 +92,20 @@ export default function ResultsPage() {
     router.push('/upload');
   };
 
+  const handleGenerateTransformation = () => {
+    if (!resultData) return;
+    
+    // Navigate to transformation page with current data including original image
+    const transformationParams = new URLSearchParams({
+      score: resultData.score.toString(),
+      suggestions: encodeURIComponent(JSON.stringify(resultData.suggestions)),
+      observations: encodeURIComponent(JSON.stringify(resultData.observations)),
+      image: encodeURIComponent(resultData.imageUrl)
+    });
+    
+    router.push(`/transformation?${transformationParams.toString()}`);
+  };
+
   if (!resultData) {
     return (
       <div className={styles.loading}>
@@ -109,6 +123,23 @@ export default function ResultsPage() {
         suggestions={resultData.suggestions}
         isLoading={false}
       />
+      
+      {/* Transformation Section */}
+      <div className={styles.transformationSection}>
+        <div className={styles.transformationCard}>
+          <h3 className={styles.transformationTitle}>🚀 See Your Potential</h3>
+          <p className={styles.transformationDescription}>
+            Wonder how you could look if you implemented these looksmaxxing changes? 
+            Our AI will generate a transformation showing your potential glow-up.
+          </p>
+          <button 
+            onClick={handleGenerateTransformation}
+            className={styles.transformationButton}
+          >
+            Generate Your Transformation
+          </button>
+        </div>
+      </div>
       
       <div className={styles.actionSection}>
         <button 

@@ -83,7 +83,7 @@ export default function ImageAnalysis({ imageUrl, score, observations, suggestio
           <div className={styles.imageContainer}>
             <img src={imageUrl} alt="Analysis" className={styles.image} />
             
-            {/* Score Overlay */}
+            {/* Score Overlay - Moved to forehead area */}
             <div className={styles.scoreOverlay}>
               <div 
                 className={styles.scoreCircle}
