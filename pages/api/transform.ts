@@ -14,7 +14,7 @@ export default async function handler(
   }
 
   try {
-    const { suggestions, observations, score, originalImageUrl } = req.body;
+    const { score } = req.body;
 
     // Simplified prompt based on what actually works well
     const transformationPrompt = `Professional black and white portrait photograph of a handsome man, close-up headshot, confident expression, sharp facial features, good lighting, high quality, clean background`;
@@ -26,15 +26,15 @@ export default async function handler(
     // Always use generation since we can't access blob URLs
     console.log('=== USING GENERATION ===');
     const response = await openai.images.generate({
-      model: "dall-e-3",
+      model: 'dall-e-3',
       prompt: transformationPrompt,
       n: 1,
-      size: "1024x1024",
-      quality: "hd",
-      style: "natural"
+      size: '1024x1024',
+      quality: 'hd',
+      style: 'natural'
     });
-    
-    const imageUrl = response.data[0]?.url;
+
+    const imageUrl = response.data?.[0]?.url;
 
     if (!imageUrl) {
       throw new Error('Failed to generate transformation image');
@@ -49,19 +49,26 @@ export default async function handler(
       imageUrl: imageUrl,
       prompt: transformationPrompt,
       originalScore: score,
-      transformedScore: Math.min(100, score + 20 + Math.floor(Math.random() * 10)) // Dramatic boost: 20-30 points
+      transformedScore: Math.min(
+        100,
+        score + 20 + Math.floor(Math.random() * 10)
+      ) // Dramatic boost: 20-30 points
     });
-
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Transformation error:', error);
-    
+
     // Return fallback response if DALL-E fails
+    const errorMessage =
+      error instanceof Error
+        ? error.message
+        : 'Failed to generate transformation';
     return res.status(200).json({
       success: false,
-      error: error.message || 'Failed to generate transformation',
-      fallbackMessage: 'Transformation generation is temporarily unavailable. The artistic transformation would show a dramatic, high-contrast black and white portrait with professional styling.',
+      error: errorMessage,
+      fallbackMessage:
+        'Transformation generation is temporarily unavailable. The artistic transformation would show a dramatic, high-contrast black and white portrait with professional styling.',
       originalScore: req.body.score || 50,
       transformedScore: Math.min(100, (req.body.score || 50) + 25)
     });
   }
-} 
+}
