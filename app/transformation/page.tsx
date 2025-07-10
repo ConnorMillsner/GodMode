@@ -129,7 +129,7 @@ export default function TransformationPage() {
   return (
     <div className={styles.pageContainer}>
       <div className={styles.header}>
-        <h1 className={styles.title}>🚀 Your Transformation</h1>
+        <h1 className={styles.title}>Your Transformation</h1>
         <p className={styles.subtitle}>See how you could look with looksmaxxing improvements</p>
       </div>
 
@@ -168,7 +168,7 @@ export default function TransformationPage() {
                 </div>
               ) : transformationData.error ? (
                 <div className={styles.errorPlaceholder}>
-                  <div className={styles.errorIcon}>⚠️</div>
+                  <div className={styles.errorIcon}>!</div>
                   <p>{transformationData.fallbackMessage}</p>
                 </div>
               ) : (

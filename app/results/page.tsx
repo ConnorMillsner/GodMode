@@ -127,7 +127,7 @@ export default function ResultsPage() {
       {/* Transformation Section */}
       <div className={styles.transformationSection}>
         <div className={styles.transformationCard}>
-          <h3 className={styles.transformationTitle}>🚀 See Your Potential</h3>
+          <h3 className={styles.transformationTitle}>See Your Potential</h3>
           <p className={styles.transformationDescription}>
             Wonder how you could look if you implemented these looksmaxxing changes? 
             Our AI will generate a transformation showing your potential glow-up.
@@ -155,7 +155,7 @@ export default function ResultsPage() {
             <button 
               className={styles.shareButton}
               onClick={() => {
-                const text = `I got a Mog Score of ${resultData.score}/100! 😎`;
+                const text = `I got a Mog Score of ${resultData.score}/100!`;
                 navigator.clipboard.writeText(text);
                 alert('Copied to clipboard!');
               }}

@@ -30,7 +30,7 @@ export default function ChadMeter({ score, isLoading = false, suggestions = [] }
   return (
     <div className={styles.container}>
       <div className={styles.meterContainer}>
-        <h1 className={styles.title}>Mog Score</h1>
+        <h1 className={styles.title}>Upload your face to see mog score</h1>
         
         <div className={styles.scoreDisplay}>
           <span 

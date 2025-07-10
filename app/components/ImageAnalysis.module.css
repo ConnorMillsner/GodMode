@@ -29,100 +29,15 @@
   z-index: 1;
 }
 
-/* Enhanced Themed Backgrounds */
-.themeSubhuman {
-  background: radial-gradient(ellipse at center, #330000 0%, #1a0000 50%, #000000 100%);
-  box-shadow: inset 0 0 100px rgba(139, 0, 0, 0.3);
-}
-
-.themeSubhuman::before {
-  background-image: 
-    radial-gradient(circle at 25% 25%, rgba(139, 0, 0, 0.2) 2px, transparent 2px),
-    radial-gradient(circle at 75% 75%, rgba(139, 0, 0, 0.2) 2px, transparent 2px);
-  background-size: 40px 40px;
-}
-
-.themeIncel {
-  background: radial-gradient(ellipse at center, #440000 0%, #220000 50%, #110000 100%);
-  box-shadow: inset 0 0 100px rgba(255, 0, 0, 0.3);
-}
-
-.themeIncel::before {
-  background-image: 
-    linear-gradient(45deg, rgba(255, 0, 0, 0.1) 25%, transparent 25%),
-    linear-gradient(-45deg, rgba(255, 0, 0, 0.1) 25%, transparent 25%);
-  background-size: 20px 20px;
-}
-
-.themeLoser {
-  background: radial-gradient(ellipse at center, #441100 0%, #221100 50%, #110800 100%);
-  box-shadow: inset 0 0 100px rgba(255, 69, 0, 0.3);
-}
-
-.themeLoser::before {
-  background-image: 
-    repeating-linear-gradient(45deg, rgba(255, 69, 0, 0.1), rgba(255, 69, 0, 0.1) 1px, transparent 1px, transparent 15px);
-}
-
-.themeNormie {
-  background: radial-gradient(ellipse at center, #333300 0%, #1a1a00 50%, #0d0d00 100%);
-  box-shadow: inset 0 0 100px rgba(255, 255, 0, 0.2);
-}
-
-.themeNormie::before {
-  background-image: 
-    radial-gradient(circle at 50% 50%, rgba(255, 255, 0, 0.1) 1px, transparent 1px);
-  background-size: 25px 25px;
-}
-
-.themeChad {
-  background: radial-gradient(ellipse at center, #003300 0%, #001a00 50%, #000d00 100%);
-  box-shadow: inset 0 0 100px rgba(50, 205, 50, 0.3);
-}
-
-.themeChad::before {
-  background-image: 
-    linear-gradient(90deg, rgba(50, 205, 50, 0.1) 1px, transparent 1px),
-    linear-gradient(0deg, rgba(50, 205, 50, 0.1) 1px, transparent 1px);
-  background-size: 30px 30px;
-}
-
-.themeGigachad {
-  background: radial-gradient(ellipse at center, #001133 0%, #000622 50%, #000311 100%);
-  box-shadow: inset 0 0 100px rgba(0, 102, 255, 0.4);
-}
-
-.themeGigachad::before {
-  background-image: 
-    radial-gradient(circle at 20% 80%, rgba(0, 102, 255, 0.2) 2px, transparent 2px),
-    radial-gradient(circle at 80% 20%, rgba(0, 102, 255, 0.2) 2px, transparent 2px),
-    radial-gradient(circle at 40% 40%, rgba(0, 102, 255, 0.1) 1px, transparent 1px);
-  background-size: 60px 60px, 60px 60px, 20px 20px;
-}
-
+/* All themes use consistent black background */
+.themeSubhuman,
+.themeIncel,
+.themeLoser,
+.themeNormie,
+.themeChad,
+.themeGigachad,
 .themeGodTier {
-  background: radial-gradient(ellipse at center, #220044 0%, #110022 50%, #080011 100%);
-  box-shadow: inset 0 0 100px rgba(148, 0, 211, 0.5);
-  animation: godTierPulse 3s ease-in-out infinite alternate;
-}
-
-.themeGodTier::before {
-  background-image: 
-    radial-gradient(circle at 25% 25%, rgba(148, 0, 211, 0.3) 2px, transparent 2px),
-    radial-gradient(circle at 75% 75%, rgba(148, 0, 211, 0.3) 2px, transparent 2px),
-    linear-gradient(45deg, rgba(148, 0, 211, 0.1) 25%, transparent 25%);
-  background-size: 50px 50px, 50px 50px, 15px 15px;
-  animation: godTierPattern 4s linear infinite;
-}
-
-@keyframes godTierPulse {
-  0% { box-shadow: inset 0 0 100px rgba(148, 0, 211, 0.3); }
-  100% { box-shadow: inset 0 0 150px rgba(148, 0, 211, 0.6); }
-}
-
-@keyframes godTierPattern {
-  0% { background-position: 0 0, 0 0, 0 0; }
-  100% { background-position: 50px 50px, -50px -50px, 15px 15px; }
+  background: #000;
 }
 
 /* Main Grid Layout */
@@ -148,11 +63,11 @@
 }
 
 .leftPanel {
-  border-left: 4px solid #0066ff;
+  border-left: 4px solid #333;
 }
 
 .rightPanel {
-  border-left: 4px solid #ff0000;
+  border-left: 4px solid #333;
 }
 
 .panelHeader {
@@ -197,11 +112,11 @@
 }
 
 .observationCard {
-  border-left: 3px solid #0066ff;
+  border-left: 3px solid #333;
 }
 
 .suggestionCard {
-  border-left: 3px solid #ff0000;
+  border-left: 3px solid #333;
 }
 
 .cardNumber {

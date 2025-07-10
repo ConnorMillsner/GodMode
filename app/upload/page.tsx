@@ -2,7 +2,6 @@
 
 import React, { useState, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
-import ChadMeter from '../components/ChadMeter';
 import styles from './upload.module.css';
 
 export default function UploadPage() {
@@ -126,11 +125,10 @@ export default function UploadPage() {
 
   return (
     <div className={styles.pageContainer}>
-      <ChadMeter 
-        score={50} 
-        isLoading={loading}
-        suggestions={[]}
-      />
+      <div className={styles.header}>
+        <h1 className={styles.title}>ChadGPT</h1>
+        <p className={styles.subtitle}>Upload your face to see mog score</p>
+      </div>
       
       <div className={styles.uploadSection}>
         <form onSubmit={handleSubmit} className={styles.uploadForm}>
@@ -151,19 +149,30 @@ export default function UploadPage() {
             <label htmlFor="file-upload" className={styles.dropLabel}>
               {selectedFile ? (
                 <div className={styles.fileSelected}>
-                  <span className={styles.fileName}>{selectedFile.name}</span>
-                  <span className={styles.fileSize}>
+                  <div className={styles.fileName}>{selectedFile.name}</div>
+                  <div className={styles.fileSize}>
                     ({(selectedFile.size / 1024 / 1024).toFixed(2)} MB)
-                  </span>
+                  </div>
                 </div>
               ) : (
                 <div className={styles.dropText}>
-                  <span className={styles.dropTitle}>Drop your image here</span>
-                  <span className={styles.dropSubtitle}>or click to browse</span>
+                  <div className={styles.uploadIcon}>+</div>
+                  <div className={styles.dropTitle}>Drop your image here</div>
+                  <div className={styles.dropSubtitle}>or click to browse</div>
                 </div>
               )}
             </label>
           </div>
+          
+          {selectedFile && (
+            <div className={styles.imagePreview}>
+              <img 
+                src={URL.createObjectURL(selectedFile)} 
+                alt="Preview" 
+                className={styles.previewImage}
+              />
+            </div>
+          )}
           
           <button
             type="submit"
@@ -172,6 +181,13 @@ export default function UploadPage() {
           >
             {loading ? 'Analyzing Chad Level...' : 'Analyze & Ascend'}
           </button>
+          
+          {loading && (
+            <div className={styles.loading}>
+              <div className={styles.spinner}></div>
+              <div className={styles.loadingText}>Processing your mogger potential...</div>
+            </div>
+          )}
         </form>
       </div>
     </div>

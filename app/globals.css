@@ -1,138 +1,99 @@
-:root {
-  --background: #000000;
-  --foreground: #ffffff;
-  --accent: #ff0000;
-  --accent-hover: #cc0000;
-  --border: #333333;
-  --radius: 0px;
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-}
-
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: 0;
-  line-height: 1.5;
-  transition: none;
-}
-
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-a {
-  color: var(--accent);
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background: #000;
+  color: #fff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Global colors - strictly black and white */
+:root {
+  --accent-color: #fff;
+  --black: #000;
+  --white: #fff;
+  --gray-light: #333;
+  --gray-medium: #666;
+  --gray-dark: #999;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #fff;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ccc;
+}
+
+/* Global button styles */
+.btn-primary {
+  background: #fff;
+  border: 2px solid #fff;
+  color: #000;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
   text-decoration: none;
-  transition: color 0.2s;
-  font-weight: 600;
+  display: inline-block;
+  text-align: center;
 }
 
-a:hover {
-  color: var(--accent-hover);
+.btn-primary:hover {
+  background: #000;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.3);
 }
 
-button, input[type="submit"] {
-  background: var(--accent);
-  color: #ffffff;
-  border: none;
-  border-radius: var(--radius);
-  padding: 1rem 2rem;
-  font-size: 1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  cursor: pointer;
-  transition: background 0.2s;
-  font-family: inherit;
+/* Global accent text */
+.accent-text {
+  color: #fff;
 }
 
-button:hover, input[type="submit"]:hover {
-  background: var(--accent-hover);
+/* Global card styles */
+.card {
+  background: #111;
+  border: 1px solid #333;
+  border-radius: 12px;
+  padding: 24px;
+  backdrop-filter: blur(10px);
 }
 
-button:disabled, input[type="submit"]:disabled {
-  background: #333333;
-  color: #666666;
-  cursor: not-allowed;
+.card:hover {
+  border-color: #666;
+  transform: translateY(-2px);
+  transition: all 0.3s ease;
 }
 
-input[type="file"], input[type="text"], input[type="email"], input[type="password"] {
-  background: #111111;
-  color: var(--foreground);
-  border: 2px solid var(--border);
-  border-radius: var(--radius);
-  padding: 1rem;
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  transition: border-color 0.2s, background-color 0.2s;
-  font-family: inherit;
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
-input[type="file"]:focus, input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus {
-  outline: none;
-  border-color: var(--accent);
-  background: #1a0000;
-}
-
-input[type="file"]::file-selector-button {
-  background: var(--accent);
-  color: #ffffff;
-  border: none;
-  border-radius: var(--radius);
-  padding: 0.5rem 1rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  cursor: pointer;
-  transition: background 0.2s;
-  font-family: inherit;
-}
-
-input[type="file"]::file-selector-button:hover {
-  background: var(--accent-hover);
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-weight: 800;
-  letter-spacing: -0.02em;
-  color: #ffffff;
-  margin-bottom: 1rem;
-  text-shadow: none;
-  text-transform: uppercase;
-}
-
-h1 {
-  font-size: 3rem;
-}
-
-h2 {
-  font-size: 1.5rem;
-}
-
-h3 {
-  font-size: 1.25rem;
-}
-
-pre, code {
-  background: #111111;
-  color: var(--foreground);
-  border-radius: var(--radius);
-  border: 1px solid var(--border);
-  padding: 1rem;
-  font-family: 'Courier New', monospace;
-  font-size: 0.9rem;
-  line-height: 1.6;
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
 }

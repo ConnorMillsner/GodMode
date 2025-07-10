@@ -60,7 +60,7 @@ export default function ImageAnalysis({ imageUrl, score, observations, suggestio
         {/* Left Side - Observations */}
         <div className={styles.leftPanel}>
           <div className={styles.panelHeader}>
-            <h3 className={styles.panelTitle}>👁️ AI Observations</h3>
+            <h3 className={styles.panelTitle}>AI Observations</h3>
           </div>
           {observations && observations.length > 0 && !isLoading ? (
             <div className={styles.cardList}>
@@ -118,7 +118,7 @@ export default function ImageAnalysis({ imageUrl, score, observations, suggestio
         {/* Right Side - Suggestions */}
         <div className={styles.rightPanel}>
           <div className={styles.panelHeader}>
-            <h3 className={styles.panelTitle}>💡 Improvements</h3>
+            <h3 className={styles.panelTitle}>Improvements</h3>
           </div>
           {suggestions && suggestions.length > 0 && !isLoading ? (
             <div className={styles.cardList}>
